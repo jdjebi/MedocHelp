@@ -1,0 +1,110 @@
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterRoot = localProperties.getProperty('flutter.sdk')
+if (flutterRoot == null) {
+    throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
+}
+
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
+if (flutterVersionCode == null) {
+    flutterVersionCode = '1'
+}
+
+def flutterVersionName = localProperties.getProperty('flutter.versionName')
+if (flutterVersionName == null) {
+    flutterVersionName = '1.0'
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
+
+android {
+    compileSdkVersion 31
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    defaultConfig {
+        applicationId "com.example.medoc"
+        minSdkVersion 24 // Editer par Jean-Marc Dje Bi
+        targetSdkVersion 30 // Editer par Jean-Marc Dje Bi
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+    }
+
+    buildTypes {
+        release {
+            // Signing with the debug keys for now, so `flutter run --release` works.
+            signingConfig signingConfigs.debug
+        }
+    }
+}
+
+flutter {
+    source '../..'
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+
+apply plugin : 'com.google.ar.sceneform.plugin'
+
+sceneform.asset(
+        'sampledata/models/homme/StickFigurea.obj',
+        'default',
+        'sampledata/models/homme/StickFigurea.sfa',
+        'src/main/assets/Homme',
+)
+
+sceneform.asset(
+        'sampledata/models/homme1/source/Talking.fbx',
+        'default',
+        'sampledata/models/homme1/source/Talking.sfa',
+        'src/main/assets/Homme1',
+)
+
+sceneform.asset(
+        'sampledata/models/test_homme1/man1.fbx',
+        'default',
+        'sampledata/models/test_homme1/man1.sfa',
+        'src/main/assets/test_homme1',
+)
+
+sceneform.asset(
+        'sampledata/models/test_homme2/source/man2.fbx',
+        'default',
+        'sampledata/models/test_homme2/source/man2.sfa',
+        'src/main/assets/test_homme2',
+)
+
+sceneform.asset(
+        'sampledata/models/femme/women.fbx',
+        'default',
+        'sampledata/models/femme/women.sfa',
+        'src/main/assets/women',
+)
+
+sceneform.asset(
+        'sampledata/models/body/scene.gltf',
+        'default',
+        'sampledata/models/body/scene.sfa',
+        'src/main/assets/body',
+)

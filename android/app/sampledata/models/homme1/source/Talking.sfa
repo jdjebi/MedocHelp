@@ -1,0 +1,81 @@
+{
+  animations: [
+    {
+      clips: [
+        {
+          name: 'mixamo.com',
+        },
+      ],
+      path: 'sampledata/models/homme1/source/Talking.fbx',
+    },
+  ],
+  materials: [
+    {
+      name: 'Wolf3D_Avatar',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: '36157ffd-4049-4189-9066-e92d251a0206_image',
+        },
+        {
+          normalMap: '5efe2899-e874-45e1-9744-efdeade32c95_image',
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+      'BoneIndices',
+      'BoneWeights',
+    ],
+    collision: {},
+    file: 'sampledata/models/homme1/source/Talking.fbx',
+    name: 'Talking',
+    recenter: 'root',
+  },
+  samplers: [
+    {
+      file: 'sampledata/models/homme1/source\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\AppData\\Local\\Temp\\36157ffd-4049-4189-9066-e92d251a0206_image.png',
+      name: '36157ffd-4049-4189-9066-e92d251a0206_image',
+      pipeline_name: '..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\AppData\\Local\\Temp\\36157ffd-4049-4189-9066-e92d251a0206_image.png',
+    },
+    {
+      file: 'sampledata/models/homme1/source\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\AppData\\Local\\Temp\\5efe2899-e874-45e1-9744-efdeade32c95_image.png',
+      name: '5efe2899-e874-45e1-9744-efdeade32c95_image',
+      params: {
+        usage_type: 'Normal',
+      },
+      pipeline_name: '..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\AppData\\Local\\Temp\\5efe2899-e874-45e1-9744-efdeade32c95_image.png',
+    },
+  ],
+  version: '0.54:2',
+}
